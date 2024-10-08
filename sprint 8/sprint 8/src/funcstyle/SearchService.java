@@ -21,7 +21,8 @@ public class SearchService {
 
         if (maybeCandy.isPresent()) {
             return maybeCandy;
-        } return supplierSearch(candyName);
+        }
+        return supplierSearch(candyName);
     }
 
     // Ищет товар с указанным именем на складах поставщиков
@@ -30,9 +31,9 @@ public class SearchService {
     private Optional<Candy> supplierSearch(String candyName) {
         // Реализуйте данный метод при помощи Stream API и Optional,
         // используйте метод min из Stream API для нахождения товара с наименьшей ценой
-        return srm.listSuppliers()
-                .stream()
-                .flatMap(supplier -> Optional.ofNullable(srm.getProduct(supplier, candyName)).stream())
+        return srm.listSuppliers().stream()
+                .flatMap(supplier -> Optional.ofNullable(srm.getProduct(supplier, candyName))
+                        .stream())
                 .min(Comparator.comparing(candy -> candy.price));
     }
 }

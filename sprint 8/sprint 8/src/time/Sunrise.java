@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class Bracticum {
+public class Sunrise {
 
     // запросите у пользователя его координаты (долгота и широта) и затем
     // выведите расписание рассветов и закатов на сегодня
